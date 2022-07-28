@@ -18,14 +18,27 @@ app.use(cors())
 mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true}, () => {console.log('Connected to database..')}
 )
 
-// TODO refactor to async await properly
 app.get('/', async (request, response) => {
     try {
-        gameEntry.find({}, (err, entries) => {
-            response.render('index.ejs', {backlog_db: entries})
-        })
+        response.render('index.ejs')
     } catch (error) {
-        if(error) return response.status(500).send(error)
+        response.status(500).send({message: error.message})
+    }
+})
+
+app.post('/', async (request, response) => {
+    const newEntry = new gameEntry(
+        {
+            title: request.body.title
+        }
+    )
+    try {
+        await newEntry.save()
+        console.log(newEntry)
+        response.redirect('/')
+    } catch (error) {
+        if (error) return response.status(500).send(error)
+        response.redirect('/')
     }
 })
 

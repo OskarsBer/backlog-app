@@ -4,6 +4,7 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 require('dotenv').config()
+const gameEntry = require('./models/game');
 
 
 // Set middleware
@@ -14,17 +15,19 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
 
-app.get('/', async (request, response) => {
-    try {
-        response.render('index.ejs')
-    } catch (error) {
-        response.status(500).send({message: error.message})
-    }
-})
-
-
 mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true}, () => {console.log('Connected to database..')}
 )
+
+// TODO refactor to async await properly
+app.get('/', async (request, response) => {
+    try {
+        gameEntry.find({}, (err, entries) => {
+            response.render('index.ejs', {backlog_db: entries})
+        })
+    } catch (error) {
+        if(error) return response.status(500).send(error)
+    }
+})
 
 
 app.listen(process.env.PORT || PORT, () => {

@@ -1,4 +1,4 @@
 # backlog-app
 
-New game backlog app I am currently working on while practicing making full-stack CRUD app. \
+New game backlog app I am currently working on while practicing full-stack CRUD. \
 **Using:** HTML, CSS, JS, MongoDB, Mongoose, EJS

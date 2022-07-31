@@ -4,12 +4,9 @@ const gameEntrySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-    default: Date.now
-  },
   status: {
-    type: String
+    type: String,
+    default: "Unfinished"
   }
 })
 

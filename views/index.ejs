@@ -24,15 +24,25 @@
                 <button type="submit"><span class="fas fa-plus"></span> Add Game</button>
             </form>
         </section>
+
+        <section>
+        <h2>Currently playing:</h2>
         <ul class="game-list">
             <% gameList.forEach(content => {%>
             <li class="game-list-item">
                 <div class="game-list-item-title">
                     <%= content.title %>
                 </div>
+                <div class="compleation-status">
+                    <%= content.status %> 
+                </div>
             </li>
             <% }) %> 
         </ul>
+        </section>
+        <section>
+        <h2>Completed:</h2>
+        </section>
     </section>
 
 

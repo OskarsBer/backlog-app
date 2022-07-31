@@ -33,7 +33,8 @@ app.get('/', async (request, response) => {
 app.post('/', async (request, response) => {
     const newEntry = new gameEntry(
         {
-            title: request.body.title
+            title: request.body.title,
+            status: request.body.status
         }
     )
     try {

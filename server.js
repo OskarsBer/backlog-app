@@ -20,7 +20,11 @@ mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true}, () => {console.
 
 app.get('/', async (request, response) => {
     try {
-        response.render('index.ejs')
+        gameEntry.find({}, (error, entries) => {
+            response.render('index.ejs', {
+                gameList: entries
+            })
+        })
     } catch (error) {
         response.status(500).send({message: error.message})
     }

@@ -24,6 +24,15 @@
                 <button type="submit"><span class="fas fa-plus"></span> Add Game</button>
             </form>
         </section>
+        <ul class="game-list">
+            <% gameList.forEach(content => {%>
+            <li class="game-list-item">
+                <div class="game-list-item-title">
+                    <%= content.title %>
+                </div>
+            </li>
+            <% }) %> 
+        </ul>
     </section>
 
 

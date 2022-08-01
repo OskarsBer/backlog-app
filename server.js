@@ -5,6 +5,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const gameEntry = require('./models/game');
+const { response } = require('express')
 
 
 // Set middleware
@@ -46,6 +47,42 @@ app.post('/', async (request, response) => {
         response.redirect('/')
     }
 })
+
+//TODO Update status
+app
+    .route('/edit/:id')
+    .get((request, response) => {
+        const id = request.params.id
+        gameEntry.find({}, (error, entries) => {
+            response.render('edit.ejs', {
+                gameList: entries, idGame: id
+            })
+        })
+    })
+    .post((request, response) => {
+        const id = request.params.id
+        gameEntry.findByIdAndUpdate(
+            id,
+            {
+                title: request.body.title,
+                status: request.body.status
+            },
+            error => {
+                if (error) return response.status(500).send(error)
+                response.redirect('/')
+            }
+        )
+    })
+
+app
+    .route('/remove/:id')
+    .get((request, response) => {
+        const id = request.params.id
+        gameEntry.findByIdAndRemove(id, error => {
+            if (error) return response.status(500).send(error)
+            response.redirect('/')
+        })
+    })
 
 
 app.listen(process.env.PORT || PORT, () => {

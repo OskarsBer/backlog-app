@@ -33,9 +33,17 @@
                 <div class="game-list-item-title">
                     <%= content.title %>
                 </div>
-                <div class="compleation-status">
-                    <%= content.status %> 
+
+                <div class="status-container">
+                    <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+
+                    <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+
+                    <div class="compleation-status">
+                        <%= content.status %> 
+                    </div>
                 </div>
+
             </li>
             <% }) %> 
         </ul>

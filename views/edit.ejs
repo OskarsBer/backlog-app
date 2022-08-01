@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlog App</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <section class="game-container">
+      <h1>Backlog of games</h1>
+
+
+      <section>
+      <h2>Edit List Item:</h2>
+      <ul class="game-list">
+          <% gameList.forEach(content => {%>
+            <% if(content._id == idGame) { %>
+              <li class="game-list-item">
+                <form action="/edit/<%= content._id %>" method ="POST">
+                  <input type="text" class="edit-input" name="title" value="<%= content.title %>">
+                  <button type="submit" class="confirm">Confirm</button>
+                  <a href="/" class="cancel">Cancel</a>
+                </form>
+              </li>
+              <% } else { %>
+                  <li class="game-list-item">
+                      <div class="game-list-item-title">
+                          <%= content.title %>
+                      </div>
+      
+                      <div class="status-container">
+                          <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+                          
+                          <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+      
+                          <div class="compleation-status">
+                              <%= content.status %> 
+                          </div>
+                      </div>
+      
+                  </li>
+                  <% } %> 
+                  <% }) %> 
+              </ul>
+              
+      </section>
+  </section>
+
+
+<script src='/main.js'></script>
+</body>
+</html>

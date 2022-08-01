@@ -24,6 +24,18 @@ form input {
     width: 250px;
 }
 
+.edit-input {
+    padding-top: 3px;
+    margin: 0px 0 5px 20px;
+    font-size: 20px;
+    font-style: italic;
+    color: rgb(75, 75, 75);
+}
+
+.confirm {
+    padding: 8px 5px 6px 5px;
+}
+
 button {
     padding: 5px;
     background: rgb(63, 60, 60);
@@ -33,15 +45,46 @@ button {
 
 .game-list-item-title {
     margin-left: 20px;
-    font-size: 18px;
+    margin-bottom: 2px;
+    font-size: 19px;
     font-weight: bold;
 }
 
 .compleation-status {
-    margin-left: 20px;
+    padding-top: 3px;
+    margin-left: 10px;
     font-size: 13px;
 }
 
 .game-list li {
-    padding: 5px 0;
+    padding: 10px 0;
+}
+
+.status-container {
+    display: flex;
+    margin-left: 20px;
+}
+
+.edit {
+    padding-top: 1px;
+    font-size: 15px;
+    text-decoration: none;
+    color: rgb(61, 91, 113);
+}
+
+.remove {
+    margin-right: 10px;
+    font-size: 17px;
+    color: rgb(230, 229, 229);
+}
+.remove span:hover {
+    color: rgb(238, 14, 14);
+}
+
+.cancel {
+    padding-top: 3px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(225, 17, 17);
 }

@@ -5,31 +5,44 @@
   }
 
 body {
+    background: rgb(31, 33, 35);
     font-family: 'Open Sans', sans-serif;
 }
 
+.game-container {
+    width: 480px;
+    display: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+}
+
 h1 {
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0 0;
     font-size: 28px;
 }
 
 h2 {
-    padding: 20px;
+    padding: 20px 0;
     font-size: 22px;
 }
 
 form input {
-    margin: 20px 0 5px 20px;
+    margin: 20px 0 5px 0;
     padding: 5px;
-    width: 250px;
+    width: 300px;
 }
 
 .edit-input {
     padding-top: 3px;
-    margin: 0px 0 5px 20px;
+    margin: 0px 0 5px 0;
     font-size: 20px;
     font-style: italic;
     color: rgb(75, 75, 75);
+    width: 330px;
 }
 
 .confirm {
@@ -44,10 +57,12 @@ button {
 }
 
 .game-list-item-title {
-    margin-left: 20px;
+    background: rgb(255, 255, 255, 0.3);
+    padding: 15px;
     margin-bottom: 2px;
     font-size: 19px;
     font-weight: bold;
+    border-radius: 7px;
 }
 
 .compleation-status {
@@ -57,12 +72,13 @@ button {
 }
 
 .game-list li {
+    list-style: none;
     padding: 10px 0;
 }
 
 .status-container {
     display: flex;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .edit {
@@ -75,16 +91,16 @@ button {
 .remove {
     margin-right: 10px;
     font-size: 17px;
-    color: rgb(230, 229, 229);
+    color: rgb(205, 205, 205);
 }
 .remove span:hover {
     color: rgb(238, 14, 14);
 }
 
 .cancel {
-    padding-top: 3px;
-    margin-left: 10px;
+    margin-left: 3px;
     text-decoration: none;
+    font-size: 13px;
     font-weight: bold;
     color: rgb(225, 17, 17);
 }

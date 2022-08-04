@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
 
-mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true}, () => {console.log('Connected to database..')}
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, () => {console.log('Connected to database..')}
 )
 
 app.get('/', async (request, response) => {

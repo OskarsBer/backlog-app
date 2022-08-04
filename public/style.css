@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
   }
 
 body {
@@ -12,8 +13,8 @@ body {
 .game-container {
     width: 480px;
     display: absolute;
-    top: 50%;
-    left: 50%;
+    /* top: 50%; */
+    /* left: 50%; */
     margin: 40px auto;
     padding: 40px;
     background: rgba(255, 255, 255, 0.9);
@@ -30,31 +31,45 @@ h2 {
     font-size: 22px;
 }
 
+.game {
+    margin-top: 20px;
+}
+
 form input {
-    margin: 20px 0 5px 0;
-    padding: 5px;
-    width: 300px;
-}
-
-.edit-input {
-    padding-top: 3px;
-    margin: 0px 0 5px 0;
-    font-size: 20px;
-    font-style: italic;
-    color: rgb(75, 75, 75);
-    width: 330px;
-}
-
-.confirm {
-    padding: 8px 5px 6px 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    padding: 1px 0 3px 7px;
+    border-radius: 5px 0 0 5px;
+    border-color: rgb(114, 114, 114);
+    border-width: 1px;
+    width: 75%;
+    line-height: 1.5;
 }
 
 button {
-    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 7px;
     background: rgb(63, 60, 60);
     color: rgb(255, 255, 255);
     border-radius: 0 5px 5px 0;
+    border: transparent;
+    cursor: pointer;
 }
+
+.edit-input {
+    margin: 0px 0 5px 0;
+    font-size: 17px;
+    font-style: italic;
+    color: rgb(75, 75, 75);
+    width: 80%;
+}
+
+.confirm {
+    padding: 7px 5px 7px 3px;
+    width: 18%;
+}
+
+
 
 .game-list-item-title {
     background: rgb(255, 255, 255, 0.3);
@@ -67,29 +82,31 @@ button {
 
 .compleation-status {
     padding-top: 3px;
-    margin-left: 10px;
+    margin-right: 10px;
     font-size: 13px;
 }
 
 .game-list li {
     list-style: none;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .status-container {
     display: flex;
-    margin-left: 15px;
+    flex-direction: row-reverse;
+    margin-right: 15px;
+    height: 20px;
 }
 
 .edit {
     padding-top: 1px;
     font-size: 15px;
     text-decoration: none;
-    color: rgb(61, 91, 113);
+    color: rgba(61, 91, 113, 0.7);
 }
 
 .remove {
-    margin-right: 10px;
+    margin-left: 10px;
     font-size: 17px;
     color: rgb(205, 205, 205);
 }
@@ -99,8 +116,102 @@ button {
 
 .cancel {
     margin-left: 3px;
-    text-decoration: none;
     font-size: 13px;
     font-weight: bold;
     color: rgb(225, 17, 17);
 }
+
+/* Dropdown menu */
+
+.wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 1px;
+    margin-left: 6px;
+}
+
+.status-menu {
+    color: rgb(150, 150, 150);
+    width: 24px;
+    height: 20px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 1px auto 30px;
+    transition: all 0.2s ease;
+}
+
+.status-menu:hover {
+    background: rgb(216, 216, 216);
+
+}
+
+.dd-wrap {
+    width: 120px;
+    position: relative;
+    display: none;
+}
+
+.dd-wrap ul li {
+    position: relative;
+    left: 62%;
+    top: 31px;
+    padding: 0;
+}
+
+.dd-wrap ul li a {
+    display: block;
+    background: white;
+    color: black;
+    padding: 8px 10px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.dd-wrap ul li a:hover,
+.dd-wrap ul li a:active {
+    background: rgb(216, 216, 216);
+}
+
+.dd-wrap ul li:first-child a {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.dd-wrap ul li:last-child a {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.dd-wrap:before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: -25%;
+    transform: translateX(-50%);
+    border: 9px solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+    z-index: 1;
+}
+
+.icon {
+    margin-right: 3px;
+}
+
+.dd-wrap ul li:last-child span.text {
+    margin-left: 4px;
+}
+.dd-wrap ul li:last-child span.icon {
+    margin-left: 2px;
+}
+
+.dd-wrap.active {
+    display: block;
+}
+
+

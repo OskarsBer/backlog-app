@@ -6,7 +6,7 @@ const gameEntrySchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Unfinished"
+    default: "Playing"
   }
 })
 

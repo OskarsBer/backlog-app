@@ -5,7 +5,6 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const gameEntry = require('./models/game');
-const { response } = require('express')
 
 
 // Set middleware
@@ -21,13 +20,13 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, () => {consol
 
 app.get('/', async (request, response) => {
     try {
-        gameEntry.find({}, (error, entries) => {
+        gameEntry.find({}, (err, entries) => {
             response.render('index.ejs', {
                 gameList: entries
             })
         })
-    } catch (error) {
-        response.status(500).send({message: error.message})
+    } catch (err) {
+        response.status(500).send({message: err.message})
     }
 })
 
@@ -39,16 +38,17 @@ app.post('/', async (request, response) => {
         }
     )
     try {
-        await newEntry.save()
+        await newEntry.save();
         console.log(newEntry)
         response.redirect('/')
-    } catch (error) {
-        if (error) return response.status(500).send(error)
-        response.redirect('/')
+    } catch (err) {
+        response.status(500).send({ message: err.message });
     }
 })
 
 //TODO Update status
+//TODO 'Please enter game title!' - in input field
+
 app
     .route('/edit/:id')
     .get((request, response) => {
@@ -67,8 +67,8 @@ app
                 title: request.body.title,
                 status: request.body.status
             },
-            error => {
-                if (error) return response.status(500).send(error)
+            err => {
+                if (err) return response.status(500).send(error)
                 response.redirect('/')
             }
         )
@@ -78,8 +78,8 @@ app
     .route('/remove/:id')
     .get((request, response) => {
         const id = request.params.id
-        gameEntry.findByIdAndRemove(id, error => {
-            if (error) return response.status(500).send(error)
+        gameEntry.findByIdAndRemove(id, err => {
+            if (err) return response.status(500).send(err)
             response.redirect('/')
         })
     })

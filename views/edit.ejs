@@ -28,7 +28,8 @@
             <% if(content._id == idGame) { %>
               <li class="game-list-item">
                 <form action="/edit/<%= content._id %>" method ="POST">
-                  <input type="text" class="edit-input" name="title" value="<%= content.title %>">
+                  <input id="inputText" type="text" class="edit-input" name="title" value="<%= content.title %>" required oninvalid="this.setCustomValidity('Enter game title here.')"
+                  oninput="this.setCustomValidity('')" maxlength="50">
                   <button type="submit" class="confirm">Confirm</button>
                   <a href="/" class="cancel">Cancel</a>
                 </form>

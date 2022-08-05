@@ -20,7 +20,8 @@
         <h1>Backlog of games</h1>
         <section class="game">
             <form action="/" method="POST" class="game-header">
-                <input type="text" name="title" placeholder="Enter game title..">
+                <input id="inputText" type="text" name="title" placeholder="Enter game title.." required oninvalid="this.setCustomValidity('Enter game title here.')"
+                oninput="this.setCustomValidity('')" maxlength="50"/>
                 <button type="submit"><span class="fas fa-plus"></span> Add Game</button>
             </form>
         </section>

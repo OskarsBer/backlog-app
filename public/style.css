@@ -46,6 +46,7 @@ form input {
     line-height: 1.5;
 }
 
+
 button {
     font-family: 'Open Sans', sans-serif;
     padding: 7px;
@@ -72,6 +73,7 @@ button {
 
 
 .game-list-item-title {
+    overflow-wrap: break-word;
     background: rgb(255, 255, 255, 0.3);
     padding: 15px;
     margin-bottom: 2px;

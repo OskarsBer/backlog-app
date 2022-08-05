@@ -19,3 +19,12 @@ function resetToggle() {
     el.className = 'dd-wrap';
   })
 }
+
+// Validate blank inputs
+const inputText = document.getElementById('inputText')
+inputText.addEventListener('change', () => {
+  if(inputText.value.trim().length === 0) {
+    inputText.value = '';
+  }
+})
+

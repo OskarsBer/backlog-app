@@ -8,7 +8,7 @@ const gameEntrySchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Playing"
+    default: "playing"
   }
 })
 

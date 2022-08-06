@@ -18,11 +18,11 @@
 <body>
 
   <section class="game-container">
-      <h1>Backlog of games</h1>
+      <h1>GAME BACKLOG</h1>
 
 
       <section>
-      <h2>Edit List Item:</h2>
+      <h2><i class="fas fa-gamepad big-icon"></i> Edit Game Title:</h2>
       <ul class="game-list">
           <% gameList.forEach(content => {%>
             <% if(content._id == idGame) { %>
@@ -41,13 +41,11 @@
                       </div>
       
                       <div class="status-container">
-                          <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+                          <a href="/remove/<%=content._id %>" class="remove" title="Delete Game"><span class ="fas fa-times"></span></a>
                           
-                          <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+                          <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit" title="Edit Game Title"></span></a>
       
-                          <div class="compleation-status">
-                              <%= content.status %> 
-                          </div>
+
                       </div>
       
                   </li>

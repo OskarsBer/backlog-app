@@ -28,3 +28,7 @@ inputText.addEventListener('change', () => {
   }
 })
 
+// Update status
+function updateStatus() {
+  document.querySelectorAll('.a-parent').submit();
+}

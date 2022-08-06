@@ -8,7 +8,7 @@
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <!-- Stylesheet -->
@@ -17,7 +17,7 @@
 <body>
 
     <section class="game-container">
-        <h1>Backlog of games</h1>
+        <h1>GAME BACKLOG</h1>
         <section class="game">
             <form action="/" method="POST" class="game-header">
                 <input id="inputText" type="text" name="title" placeholder="Enter game title.." required oninvalid="this.setCustomValidity('Enter game title here.')"
@@ -27,22 +27,21 @@
         </section>
 
         <section>
-        <h2>Currently Playing:</h2>
+        <h2><i class="fas fa-gamepad big-icon"></i> Currently Playing:</h2>
         <ul class="game-list">
             <% gameList.forEach(content => {%>
+                <% if(content.status == "playing") { %>
             <li class="game-list-item">
                 <div class="game-list-item-title">
                     <%= content.title %>
                 </div>
 
                 <div class="status-container">
-                    <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+                    <a href="/remove/<%=content._id %>" class="remove" title="Delete Game"><span class ="fas fa-times"></span></a>
 
-                    <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+                    <a href="/edit/<%=content._id %>" class="edit" title="Edit Game Title"><span class ="fas fa-edit"></span></a>
 
-                    <div class="compleation-status">
-                        <%= content.status %> 
-                    </div>
+
 
                     <div class="wrapper">
                         <div class="status-menu">
@@ -50,7 +49,7 @@
                         </div>
                         <div class="dd-wrap">
                             <ul>
-                                <li><a href="#" class="a-parent">
+                                <li><a href="/update/playing/<%=content._id %>" class="a-parent" onclick="updateStatus()">
                                     <div class="wrap">
                                         <span class="icon">
                                             <i class="fas fa-gamepad"></i>
@@ -59,7 +58,7 @@
                                     </div>
                                 </a></li>
 
-                                <li><a href="#" class="a-parent">
+                                <li><a href="/update/completed/<%=content._id %>" class="a-parent" onclick="updateStatus()">
                                     <div class="wrap">
                                         <span class="icon">
                                             <i class="fas fa-trophy"></i>
@@ -68,7 +67,7 @@
                                     </div>
                                 </a></li>
 
-                                <li><a href="#" class="a-parent">
+                                <li><a href="/update/dropped/<%=content._id %>"  class="a-parent" onclick="updateStatus()">
                                     <div class="wrap">
                                         <span class="icon">
                                             <i class="fas fa-ghost"></i>        
@@ -83,12 +82,130 @@
                 </div>
 
             </li>
+            <% } %>
             <% }) %> 
         </ul>
         </section>
         <section>
-        <h2>Recently Completed:</h2>
+        <h2><i class="fas fa-trophy big-icon"></i> Completed:</h2>
+
+        <ul class="game-list">
+            <% gameList.forEach(content => {%>
+                <% if(content.status == "completed") { %>
+            <li class="game-list-item">
+                <div class="game-list-item-title">
+                    <%= content.title %>
+                </div>
+
+                <div class="status-container">
+                    <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+
+                    <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+
+
+
+                    <div class="wrapper">
+                        <div class="status-menu">
+                            <span class="fas fa-bars"></span>
+                        </div>
+                        <div class="dd-wrap">
+                            <ul>
+                                <li><a href="/update/playing/<%=content._id %>" class="a-parent" onclick="updateStatus()">
+                                    <div class="wrap">
+                                        <span class="icon">
+                                            <i class="fas fa-gamepad"></i>
+                                        </span>
+                                        <span class="text">Playing</span>
+                                    </div>
+                                </a></li>
+
+                                <li><a href="/update/completed/<%=content._id %>" class="a-parent" onclick="updateStatus()">
+                                    <div class="wrap">
+                                        <span class="icon">
+                                            <i class="fas fa-trophy"></i>
+                                        </span>
+                                        <span class="text">Completed</span>
+                                    </div>
+                                </a></li>
+
+                                <li><a href="/update/dropped/<%=content._id %>"  class="a-parent" onclick="updateStatus()">
+                                    <div class="wrap">
+                                        <span class="icon">
+                                            <i class="fas fa-ghost"></i>        
+                                        </span>
+                                        <span class="text">Dropped</span>
+                                    </div>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <% } %> 
+            <% }) %> 
+        </ul>
         </section>
+
+        <section>
+            <h2><i class="fas fa-ghost big-icon"></i> Dropped:</h2>
+    
+            <ul class="game-list">
+                <% gameList.forEach(content => {%>
+                    <% if(content.status == "dropped") { %>
+                <li class="game-list-item">
+                    <div class="game-list-item-title">
+                        <%= content.title %>
+                    </div>
+    
+                    <div class="status-container">
+                        <a href="/remove/<%=content._id %>" class="remove"><span class ="fas fa-times"></span></a>
+    
+                        <a href="/edit/<%=content._id %>" class="edit"><span class ="fas fa-edit"></span></a>
+    
+
+    
+                        <div class="wrapper">
+                            <div class="status-menu">
+                                <span class="fas fa-bars"></span>
+                            </div>
+                            <div class="dd-wrap">
+                                <ul>
+                                    <li><a href="/update/playing/<%=content._id %>" class="a-parent" onclick="updateStatus()">
+                                        <div class="wrap">
+                                            <span class="icon">
+                                                <i class="fas fa-gamepad"></i>
+                                            </span>
+                                            <span class="text">Playing</span>
+                                        </div>
+                                    </a></li>
+    
+                                    <li><a href="/update/completed/<%=content._id %>" class="a-parent" onclick="updateStatus()">
+                                        <div class="wrap">
+                                            <span class="icon">
+                                                <i class="fas fa-trophy"></i>
+                                            </span>
+                                            <span class="text">Completed</span>
+                                        </div>
+                                    </a></li>
+    
+                                    <li><a href="/update/dropped/<%=content._id %>"  class="a-parent" onclick="updateStatus()">
+                                        <div class="wrap">
+                                            <span class="icon">
+                                                <i class="fas fa-ghost"></i>        
+                                            </span>
+                                            <span class="text">Dropped</span>
+                                        </div>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <% } %> 
+                <% }) %> 
+            </ul>
+            </section>
+
     </section>
 
 

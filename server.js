@@ -47,8 +47,23 @@ app.post('/', async (request, response) => {
 })
 
 //TODO Update status
-//TODO 'Please enter game title!' - in input field
-
+app
+    .route('/update/:status/:id')
+    .get((request, response) => {
+        const id = request.params.id
+        const status = request.params.status
+        gameEntry.findByIdAndUpdate(
+            id,
+            {
+                status: status
+            },
+            err => {
+                if (err) return response.status(500).send(err)
+                response.redirect('/')
+            }
+        )
+    })
+// Edit game title
 app
     .route('/edit/:id')
     .get((request, response) => {
@@ -74,6 +89,7 @@ app
         )
     })
 
+// Delete game entry
 app
     .route('/remove/:id')
     .get((request, response) => {

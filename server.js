@@ -31,22 +31,34 @@ app.get('/', async (request, response) => {
 })
 
 app.post('/', async (request, response) => {
+    const gameTitle = request.body.title
     const newEntry = new gameEntry(
         {
             title: request.body.title,
             status: request.body.status
         }
     )
-    try {
-        await newEntry.save();
-        console.log(newEntry)
-        response.redirect('/')
+    try {    
+        gameEntry.find({title: gameTitle}, function(err, data){
+            if(err){
+                response.status(500).send({ message: err.message });
+            }
+            if(data.length > 0) {
+                console.log('already exist')
+                response.redirect('/')
+                return
+            }
+            newEntry.save();
+            console.log(newEntry)
+            response.redirect('/')
+        });       
+
+
     } catch (err) {
         response.status(500).send({ message: err.message });
     }
 })
 
-//TODO Update status
 app
     .route('/update/:status/:id')
     .get((request, response) => {

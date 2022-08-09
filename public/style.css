@@ -4,158 +4,156 @@
     padding: 0;
     text-decoration: none;
   }
-
-body {
-    background: rgb(31, 33, 35);
-    font-family: 'Open Sans', sans-serif;
-}
-
-.game-container {
+  
+  body {
+    background: rgb(31 33 35);
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .game-container {
     width: 480px;
-    display: absolute;
-    /* top: 50%; */
-    /* left: 50%; */
     margin: 40px auto;
-    padding: 26px 40px 40px 40px;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 26px 40px 40px;
+    background: rgb(255 255 255 / 0.9);
     border-radius: 8px;
-}
-
-h1 {
-    color: rgba(0, 0, 0, 0.8);
-    padding: 0px 20px 3px 0;
+  }
+  
+  h1 {
+    color: rgb(0 0 0 / 0.8);
+    padding: 0 20px 3px 0;
     font-size: 30px;
     font-weight: bold;
     letter-spacing: -1px;
     word-spacing: 4px;
     text-align: center;
-}
-
-h2 {
-    color: rgba(0, 0, 0, 0.8);
-    padding: 30px 0 15px 0;
+  }
+  
+  h2 {
+    color: rgb(0 0 0 / 0.8);
+    padding: 30px 0 15px;
     font-size: 22px;
-}
-
-.big-icon {
-    color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .big-icon {
+    color: rgb(0 0 0 / 0.2);
     font-size: 20px;
     margin-right: 5px;
-}
-
-.game {
+  }
+  
+  .game {
     margin-top: 20px;
-}
-
-form input {
-    font-family: 'Open Sans', sans-serif;
+  }
+  
+  form input {
+    font-family: "Open Sans", sans-serif;
     font-size: 17px;
     padding: 1px 0 3px 7px;
     border-radius: 5px 0 0 5px;
-    border-color: rgb(114, 114, 114);
+    border-color: rgb(114 114 114);
     border-width: 1px;
     width: 75%;
     line-height: 1.5;
-}
-
-
-button {
-    font-family: 'Open Sans', sans-serif;
+  }
+  
+  button {
+    font-family: "Open Sans", sans-serif;
     padding: 7px;
-    background: rgb(63, 60, 60);
-    color: rgb(255, 255, 255);
+    background: rgb(63 60 60);
+    color: rgb(255 255 255);
     border-radius: 0 5px 5px 0;
     border: transparent;
     cursor: pointer;
-}
-
-.edit-input {
-    margin: 0px 0 5px 0;
+  }
+  
+  .edit-input {
+    margin: 0 0 5px;
     font-size: 17px;
     font-style: italic;
-    color: rgb(75, 75, 75);
+    color: rgb(75 75 75);
     width: 80%;
-}
-
-.confirm {
+  }
+  
+  .confirm {
     padding: 7px 5px 7px 3px;
     width: 18%;
-}
-
-.game-list-item-title {
+  }
+  
+  .game-list-item-title {
     overflow-wrap: break-word;
-    background: rgb(255, 255, 255, 0.3);
+    background: rgb(255 255 255 / 0.3);
     padding: 15px;
     margin-bottom: 2px;
     font-size: 19px;
     font-weight: bold;
     border-radius: 7px;
-}
-
-.compleation-status {
+  }
+  
+  .compleation-status {
     padding-top: 3px;
     margin-right: 10px;
     font-size: 13px;
-}
-
-.compleation-status:first-letter {
+  }
+  
+  .compleation-status::first-letter {
     text-transform: capitalize;
-}
-
-.game-list li {
+  }
+  
+  .game-list li {
     list-style: none;
-    padding: 5px 0 0 0;
-}
-
-.status-container {
+    padding: 5px 0 0;
+  }
+  
+  .status-container {
     display: flex;
     flex-direction: row-reverse;
     margin-right: 15px;
     height: 20px;
-}
-
-.edit {
+  }
+  
+  .edit {
     margin-left: 8px;
     padding-top: 1px;
     font-size: 15px;
     text-decoration: none;
-    color: rgb(191, 191, 191);
-}
-.edit span:hover {
-    color: rgba(100, 100, 100, 0.9);
+    color: rgb(191 191 191);
+  }
+  
+  .edit span:hover {
+    color: rgb(100 100 100 / 0.9);
     transition: all 0.3s ease;
-}
-
-.remove {
+  }
+  
+  .remove {
     line-height: 1.3;
     margin-left: 10px;
     font-size: 19px;
-    color: rgb(205, 205, 205);
-}
-.remove span:hover {
-    color: rgb(238, 14, 14);
+    color: rgb(205 205 205);
+  }
+  
+  .remove span:hover {
+    color: rgb(238 14 14);
     transition: all 0.5s ease;
-}
-
-.cancel {
+  }
+  
+  .cancel {
     margin-left: 3px;
     font-size: 13px;
     font-weight: bold;
-    color: rgb(225, 17, 17);
-}
-
-/* Dropdown menu */
-
-.wrapper {
+    color: rgb(225 17 17);
+  }
+  
+  /* Dropdown menu */
+  
+  .wrapper {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     margin-top: 1px;
     margin-left: 6px;
-}
-
-.status-menu {
-    color: rgb(191, 191, 191);
+  }
+  
+  .status-menu {
+    color: rgb(191 191 191);
     width: 24px;
     height: 20px;
     border-radius: 3px;
@@ -165,28 +163,27 @@ button {
     cursor: pointer;
     margin: 1px auto 30px;
     transition: all 0.2s ease;
-}
-
-.status-menu:hover {
-    background: rgb(216, 216, 216);
-    color: rgba(100, 100, 100, 0.9);
-
-}
-
-.dd-wrap {
+  }
+  
+  .status-menu:hover {
+    background: rgb(216 216 216);
+    color: rgb(100 100 100 / 0.9);
+  }
+  
+  .dd-wrap {
     width: 120px;
     position: relative;
     display: none;
-}
-
-.dd-wrap ul li {
+  }
+  
+  .dd-wrap ul li {
     position: relative;
     left: 62%;
     top: 31px;
     padding: 0;
-}
-
-.dd-wrap ul li a {
+  }
+  
+  .dd-wrap ul li a {
     display: block;
     background: white;
     color: black;
@@ -195,46 +192,45 @@ button {
     letter-spacing: 1px;
     font-size: 13px;
     transition: all 0.2s ease;
-}
-
-.dd-wrap ul li a:hover,
-.dd-wrap ul li a:active {
-    background: rgb(216, 216, 216);
-}
-
-.dd-wrap ul li:first-child a {
+  }
+  
+  .dd-wrap ul li a:hover, .dd-wrap ul li a:active {
+    background: rgb(216 216 216);
+  }
+  
+  .dd-wrap ul li:first-child a {
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
-}
-
-.dd-wrap ul li:last-child a {
+  }
+  
+  .dd-wrap ul li:last-child a {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-}
-
-.dd-wrap:before {
+  }
+  
+  .dd-wrap::before {
     content: "";
     position: absolute;
     top: 13px;
     right: -25%;
     transform: translateX(-50%);
     border: 9px solid;
-    border-color: transparent transparent rgb(255, 255, 255) transparent;
+    border-color: transparent transparent rgb(255 255 255) transparent;
     z-index: 1;
-}
-
-.icon {
+  }
+  
+  .icon {
     margin-right: 3px;
-}
-
-.dd-wrap ul li:last-child span.text {
+  }
+  
+  .dd-wrap ul li:last-child .text {
     margin-left: 4px;
-}
-.dd-wrap ul li:last-child span.icon {
+  }
+  
+  .dd-wrap ul li:last-child .icon {
     margin-left: 2px;
-}
-
-.dd-wrap.active {
+  }
+  
+  .dd-wrap.active {
     display: block;
-}
-
+  }

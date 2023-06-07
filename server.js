@@ -14,9 +14,19 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(express.json())
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
-  console.log('Connected to database..');
-});
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, () => {
+//   console.log('Connected to database..');
+// });
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
 
 app.get('/', async (request, response) => {
   try {
@@ -105,6 +115,13 @@ app.route('/remove/:id').get((request, response) => {
   });
 });
 
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+// app.listen(process.env.PORT || PORT, () => {
+//   console.log(`Server is running on port ${process.env.PORT}`);
+// });
+
+connectDB().then(() => {
+  app.listen(process.env.PORT || PORT, () => {
+    console.log('listening for requests');
+    console.log(`Server is running on port ${process.env.PORT}`);
+  });
 });
